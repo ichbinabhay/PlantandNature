@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plants and Nature: The Living Foundation of Our World | Academic Presentation</title>
+  <meta name="description" content="An interactive presentation and educational showcase on the essential role of plants and nature in our lives, the challenges they face, and practical steps to protect them." />
+  
+  <!-- Google Fonts for Editorial Elegance & Crisp Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Project Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Ambient Botanical Leaves Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress"></div>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" aria-label="Go to top">
+        <div class="brand-icon">🌱</div>
+        <span>Living Foundation</span>
+      </a>
+
+      <!-- Desktop & Mobile Navigation Links -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#thought-experiment">The Vision</a></li>
+          <li><a href="#everyday-life">Everyday Life</a></li>
+          <li><a href="#support-life">Life Support</a></li>
+          <li><a href="#wellbeing">Wellbeing</a></li>
+          <li><a href="#challenges">Challenges</a></li>
+          <li><a href="#actions">Action Hub</a></li>
+          <li><a href="#quiz">Quiz</a></li>
+          <li><a href="#speech-center">Speech Mode</a></li>
+        </ul>
+      </nav>
+
+      <!-- Utility Actions -->
+      <div class="nav-actions">
+        <!-- Presentation Slides Button -->
+        <button id="open-presentation-btn" class="btn btn-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;" title="Start Classroom Slideshow">
+          🖥️ Present
+        </button>
+
+        <!-- Ambient Nature Sound Toggle -->
+        <button id="audio-toggle-btn" class="btn-icon" aria-label="Toggle Nature Audio">
+          🔈
+          <span class="tooltip">Nature Sounds</span>
+        </button>
+
+        <!-- Ambient Falling Leaves Toggle -->
+        <button id="leaves-toggle-btn" class="btn-icon active" aria-label="Toggle Falling Leaves">
+          🍃
+          <span class="tooltip">Falling Leaves</span>
+        </button>
+
+        <!-- Light / Dark Theme Toggle -->
+        <button id="theme-toggle-btn" class="btn-icon" aria-label="Toggle Color Theme">
+          🌙
+          <span class="tooltip">Dark Mode</span>
+        </button>
+
+        <!-- Mobile Drawer Toggle -->
+        <button id="mobile-menu-btn" class="btn-icon mobile-menu-btn" aria-label="Open Navigation Menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         Hero Section
+         ========================================================================== -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-content">
+        <div class="academic-pill">
+          <span class="badge badge-green">BVBCET • 1st Semester Professional Communication</span>
+        </div>
+
+        <h1 class="hero-title">
+          Plants and Nature: <br />
+          <span class="highlight">The Living Foundation of Our World</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          "A seed is small, but it can grow into something much larger. In the same way, small acts of care—repeated by many people—can help protect the living world around us."
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#thought-experiment" class="btn btn-primary">
+            Explore Thought Experiment ↓
+          </a>
+          <button id="hero-speech-audio-btn" class="btn btn-secondary">
+            🎧 Listen to Speech
+          </button>
+          <a href="#actions" class="btn btn-accent">
+            🌿 Take the Green Pledge
+          </a>
+        </div>
+
+        <!-- Interactive Thought Experiment: A World Without Plants -->
+        <div id="thought-experiment" class="experiment-box">
+          <div class="experiment-header">
+            <div class="experiment-title">
+              <span>🌍 Thought Experiment:</span>
+              <strong>Imagine a World Without Plants</strong>
+            </div>
+            <div class="comparison-toggle">
+              <button id="btn-toggle-with" class="toggle-opt active">With Plants (Lush)</button>
+              <button id="btn-toggle-without" class="toggle-opt dystopia">Without Plants (Barren)</button>
+            </div>
+          </div>
+
+          <!-- Split Visualizer -->
+          <div id="split-viewer" class="split-viewer">
+            <!-- Left Side: With Plants -->
+            <div id="split-with-plants" class="split-side with-plants" style="width: 50%;">
+              <div class="split-content">
+                <span class="split-tag tag-lush">LUSH BIOSPHERE</span>
+                <h3 class="split-heading">Abundant Life & Vibrant Air</h3>
+                <p class="split-desc">
+                  Forests canopy the earth, songbirds nest in high branches, fertile soils produce food, and rich oxygen sustains every heartbeat.
+                </p>
+                <div class="split-stats">
+                  <div class="stat-chip">
+                    <span class="val">20.9%</span>
+                    <span class="lbl">Atmospheric O₂</span>
+                  </div>
+                  <div class="stat-chip">
+                    <span class="val">21°C</span>
+                    <span class="lbl">Average Temp</span>
+                  </div>
+                  <div class="stat-chip">
+                    <span class="val">8.7M+</span>
+                    <span class="lbl">Living Species</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Without Plants -->
+            <div class="split-side without-plants">
+              <div class="split-content">
+                <span class="split-tag tag-barren">DYSTOPIAN DESOLATION</span>
+                <h3 class="split-heading">Barren Dust & Suffocation</h3>
+                <p class="split-desc">
+                  No crops, no fruits, bare cracked soil, relentless scorching heat without shade, collapsing food webs, and unbreathable air.
+                </p>
+                <div class="split-stats">
+                  <div class="stat-chip">
+                    <span class="val">&lt; 4%</span>
+                    <span class="lbl">Oxygen Collapse</span>
+                  </div>
+                  <div class="stat-chip">
+                    <span class="val">49°C</span>
+                    <span class="lbl">Unregulated Heat</span>
+                  </div>
+                  <div class="stat-chip">
+                    <span class="val">0</span>
+                    <span class="lbl">Crops & Habitats</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Draggable Divider Handle -->
+            <div id="split-handle" class="split-handle" style="left: 50%;">
+              <div class="split-circle">⇄</div>
+            </div>
+          </div>
+
+          <div class="experiment-footer">
+            <span>💡 <em>Drag slider or toggle buttons above to compare earth with vs. without vegetation.</em></span>
+            <span class="badge badge-earth">Essential to Life</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 1: Everyday Life (Everyday Essentials)
+         ========================================================================== -->
+    <section id="everyday-life" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Part 01 • The Silent Companion</span>
+          <h2 class="section-title">Plants Are Part of Everyday Life</h2>
+          <p class="section-description">
+            We often notice plants only during a weekend park stroll. Yet, from dawn till midnight, our food, clothing, shelter, health, and comfort originate from botanical life.
+          </p>
+        </div>
+
+        <!-- 4 Pillars of Everyday Plants Grid -->
+        <div class="everyday-grid">
+          <!-- Card 1: Food & Nutrition -->
+          <article class="category-card">
+            <div class="card-icon-wrap">🌾</div>
+            <h3 class="card-title">Food & Nutrition</h3>
+            <p class="card-text">
+              Every meal we consume traces back directly or indirectly to plants. Grains, vegetables, pulses, and fruits fuel our metabolism. Even livestock depends completely on plant pasture and forage.
+            </p>
+            <div class="card-examples">
+              <span class="example-tag">Rice & Wheat</span>
+              <span class="example-tag">Fruits & Greens</span>
+              <span class="example-tag">Coffee & Tea</span>
+              <span class="example-tag">Spices & Nuts</span>
+            </div>
+          </article>
+
+          <!-- Card 2: Materials & Fabrics -->
+          <article class="category-card">
+            <div class="card-icon-wrap">🧵</div>
+            <h3 class="card-title">Daily Materials</h3>
+            <p class="card-text">
+              Natural fibers clothe billions of people daily. Timber provides structural integrity for our homes, doors, and desks. Renewable paper carries our thoughts, books, and blueprints.
+            </p>
+            <div class="card-examples">
+              <span class="example-tag">Cotton Garments</span>
+              <span class="example-tag">Lumber & Wood</span>
+              <span class="example-tag">Paper & Notebooks</span>
+              <span class="example-tag">Natural Oils</span>
+            </div>
+          </article>
+
+          <!-- Card 3: Medicine & Healing -->
+          <article class="category-card">
+            <div class="card-icon-wrap">💊</div>
+            <h3 class="card-title">Health & Medicine</h3>
+            <p class="card-text">
+              Over 40% of pharmaceutical formulations originate from biochemical compounds discovered in wild herbs and trees, from aspirin (willow bark) to critical cardiac and cancer treatments.
+            </p>
+            <div class="card-examples">
+              <span class="example-tag">Herbal Remedies</span>
+              <span class="example-tag">Active Compounds</span>
+              <span class="example-tag">Essential Oils</span>
+              <span class="example-tag">Therapeutic Teas</span>
+            </div>
+          </article>
+
+          <!-- Card 4: Shelter & Space -->
+          <article class="category-card">
+            <div class="card-icon-wrap">🏡</div>
+            <h3 class="card-title">Shelter & Living Space</h3>
+            <p class="card-text">
+              Beyond furniture, plants purify indoor air, dampen urban acoustic noise, stabilize surrounding soil, and transform concrete structures into warm, hospitable living environments.
+            </p>
+            <div class="card-examples">
+              <span class="example-tag">Timber Architecture</span>
+              <span class="example-tag">Acoustic Buffers</span>
+              <span class="example-tag">Indoor Air Filters</span>
+              <span class="example-tag">Natural Insulation</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Interactive Student Day Timeline -->
+        <div class="day-timeline-box">
+          <div class="day-timeline-header">
+            <h3>⏰ A Day in Your Life Powered by Plants</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+              Trace an ordinary college day and notice how many times you interact with plant biology:
+            </p>
+          </div>
+          <div class="timeline-items">
+            <div class="timeline-step">
+              <div class="step-time">07:00 AM</div>
+              <div class="step-title">Waking Up</div>
+              <div class="step-plant-source">Soft 100% cotton sheets & warm brewed coffee from roasted beans.</div>
+            </div>
+            <div class="timeline-step">
+              <div class="step-time">08:30 AM</div>
+              <div class="step-title">Breakfast</div>
+              <div class="step-plant-source">Wheat toast, oats, bananas, and tea infused with cardamom.</div>
+            </div>
+            <div class="timeline-step">
+              <div class="step-time">11:00 AM</div>
+              <div class="step-title">College Lecture</div>
+              <div class="step-plant-source">Wood composite desk, recycled paper notebook, and herbal pen ink.</div>
+            </div>
+            <div class="timeline-step">
+              <div class="step-time">01:30 PM</div>
+              <div class="step-title">Campus Lunch</div>
+              <div class="step-plant-source">Steaming rice, spiced lentils, fresh salads, and sunflower oil dressing.</div>
+            </div>
+            <div class="timeline-step">
+              <div class="step-time">05:00 PM</div>
+              <div class="step-title">Walk Home</div>
+              <div class="step-plant-source">Street neem and banyan trees providing shade and cooling the pavement.</div>
+            </div>
+            <div class="timeline-step">
+              <div class="step-time">10:30 PM</div>
+              <div class="step-title">Rest & Unwind</div>
+              <div class="step-plant-source">A soothing chamomile infusion and indoor aloe plant quietly enriching room air.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 2: How Plants Support Life (The Living Engine)
+         ========================================================================== -->
+    <section id="support-life" class="section-padding" style="background: rgba(82, 183, 136, 0.05);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Part 02 • Biosphere Infrastructure</span>
+          <h2 class="section-title">How Plants Support Life</h2>
+          <p class="section-description">
+            Plants are the planet's atmospheric engineers. They generate the oxygen we inhale, capture runaway greenhouse gases, stabilize soils, and anchor the global web of life.
+          </p>
+        </div>
+
+        <div class="support-interactive-layout">
+          <!-- Interactive Photosynthesis Lab -->
+          <div class="lab-card">
+            <div class="lab-header">
+              <h3>🔬 Interactive Photosynthesis Laboratory</h3>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">
+                Toggle sunlight, carbon dioxide, and water to see how the biochemical reaction produces oxygen and organic energy:
+              </p>
+            </div>
+
+            <div class="lab-stage">
+              <!-- Animated floating molecules -->
+              <div id="mol-sun" class="floating-molecule mol-sun">☀️ Solar Photons</div>
+              <div id="mol-co2" class="floating-molecule mol-co2">🌫️ 6CO₂ (Carbon Dioxide)</div>
+              <div id="mol-h2o" class="floating-molecule mol-h2o">💧 6H₂O (Water)</div>
+
+              <div id="mol-o2" class="floating-molecule mol-o2">💨 6O₂ (Oxygen Out)</div>
+              <div id="mol-glucose" class="floating-molecule mol-glucose">🍯 C₆H₁₂O₆ (Glucose Sugar)</div>
+
+              <!-- Central Plant Stem -->
+              <div class="lab-plant-visual">
+                <div id="plant-stem" class="plant-svg-stem">🌿</div>
+                <div style="font-weight: 700; font-size: 0.85rem; margin-top: 0.5rem; color: var(--color-primary);">
+                  Chloroplast Catalyst
+                </div>
+              </div>
+            </div>
+
+            <!-- Input Switches -->
+            <div class="lab-controls">
+              <button id="input-sun" class="input-toggle-btn active" title="Toggle Solar Radiation">
+                <span>☀️ Sunlight</span>
+                <small style="opacity: 0.7;">Energy Source</small>
+              </button>
+              <button id="input-co2" class="input-toggle-btn active" title="Toggle Carbon Intake">
+                <span>🌫️ CO₂ Gas</span>
+                <small style="opacity: 0.7;">Carbon Backbone</small>
+              </button>
+              <button id="input-h2o" class="input-toggle-btn active" title="Toggle Root Hydration">
+                <span>💧 Ground Water</span>
+                <small style="opacity: 0.7;">Electron Donor</small>
+              </button>
+            </div>
+
+            <div id="lab-status" class="equation-banner">
+              <strong>✨ Active Synthesis:</strong> 6CO₂ + 6H₂O + Sunlight ➔ <strong>C₆H₁₂O₆ (Sugar)</strong> + <strong>6O₂ (Oxygen)</strong>
+            </div>
+          </div>
+
+          <!-- Ecological Web & Climate Sinks Column -->
+          <div class="eco-features">
+            <!-- Feature 1: The Carbon Vault -->
+            <div class="eco-card">
+              <div class="eco-card-header">
+                <span class="eco-icon">🌳</span>
+                <h4>The Carbon Sink & Climate Shield</h4>
+              </div>
+              <p>
+                Forests and soils are giant biological carbon reservoirs. Trees pull carbon dioxide from the air and store it safely in trunks, roots, and organic humus for centuries, buffering against runaway planetary heating.
+              </p>
+            </div>
+
+            <!-- Feature 2: Habitats & The Connected Web -->
+            <div class="eco-card">
+              <div class="eco-card-header">
+                <span class="eco-icon">🐝</span>
+                <h4>The Connected Web of Life</h4>
+              </div>
+              <p>
+                A single banyan or oak tree hosts hundreds of insects, birds, fungi, and epiphytes. If flowering plants dwindle, pollinators starve; without pollinators, human crops cannot yield seed.
+              </p>
+
+              <!-- Interactive Chain Simulation -->
+              <div class="chain-simulator">
+                <div class="chain-toggle-bar">
+                  <span>Ecosystem Dependency Chain:</span>
+                  <button id="btn-toggle-chain" class="btn btn-secondary" style="padding: 0.25rem 0.65rem; font-size: 0.75rem;">
+                    Simulate Loss of Flowering Plants
+                  </button>
+                </div>
+                <div class="chain-nodes">
+                  <div class="chain-node">🌸 Flowers</div>
+                  <span class="chain-arrow">➔</span>
+                  <div class="chain-node">🐝 Pollinators</div>
+                  <span class="chain-arrow">➔</span>
+                  <div class="chain-node">🍎 Crop Yields</div>
+                  <span class="chain-arrow">➔</span>
+                  <div class="chain-node">👥 Human Food</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 3: Nature and Our Wellbeing
+         ========================================================================== -->
+    <section id="wellbeing" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Part 03 • Mind & Urban Health</span>
+          <h2 class="section-title">Nature and Our Wellbeing</h2>
+          <p class="section-description">
+            Nature supports far more than our physical biology. It directly calms our nervous system, soothes mental fatigue, and cools our urban living environments.
+          </p>
+        </div>
+
+        <div class="wellbeing-grid">
+          <!-- Text and Benefits -->
+          <div class="wellbeing-text-block">
+            <h3>Why Greenery Renews the Human Mind</h3>
+            <p>
+              In our modern lives filled with flashing screens, traffic congestion, and academic deadlines, our attention is constantly depleted. Walking into a green park allows "soft fascination"—letting the prefrontal cortex rest and recover.
+            </p>
+            <p>
+              Studies show that just 20 minutes under tree foliage drops cortisol (stress hormone) levels by 21%, lowers blood pressure, and improves creative problem solving.
+            </p>
+
+            <div class="benefit-pills">
+              <div class="benefit-item">
+                <span class="icon">🧠</span>
+                <span class="desc">Reduced Screen Fatigue & Stress Reduction</span>
+              </div>
+              <div class="benefit-item">
+                <span class="icon">🌡️</span>
+                <span class="desc">Urban Microclimate Temperature Regulation</span>
+              </div>
+              <div class="benefit-item">
+                <span class="icon">🤝</span>
+                <span class="desc">Community Spaces for Rest, Socializing, & Play</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Urban Heat Island Simulator -->
+          <div class="urban-simulator-box">
+            <div class="sim-header">
+              <h4>🏙️ Urban Heat Island Simulator</h4>
+              <p>Adjust the urban tree canopy slider to see how trees cool concrete streets:</p>
+            </div>
+
+            <div class="temp-gauge-card">
+              <div>
+                <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Street Surface Temp</span>
+                <div class="temp-readout">
+                  <span id="urban-temp-val" class="temp-val">30.8</span>
+                  <span class="temp-unit">°C</span>
+                </div>
+              </div>
+              <span id="urban-status-badge" class="temp-status-badge" style="background: #feebc8; color: #c05621;">
+                Moderate Canopy (Partial Cooling)
+              </span>
+            </div>
+
+            <div class="heat-slider-group">
+              <div class="slider-label-row">
+                <span>0% Canopy (Asphalt & Concrete)</span>
+                <span>100% Canopy (Dense Urban Forest)</span>
+              </div>
+              <input id="urban-heat-range" type="range" min="0" max="100" value="60" class="custom-range" aria-label="Urban Tree Canopy Percentage" />
+            </div>
+
+            <div id="urban-scene-preview" class="urban-scene-preview" style="background: linear-gradient(135deg, #744210, #2d6a4f);">
+              <span>🏢</span>
+              <span>🌳</span>
+              <span>🚲</span>
+              <span>🏡</span>
+              <span>🌿</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nature Soundscape Banner -->
+        <div class="nature-sound-banner">
+          <div class="sound-info">
+            <div class="sound-icon">🎧</div>
+            <div class="sound-text">
+              <h5>Procedural Nature Soundscape</h5>
+              <p>Listen to a synthesized gentle forest breeze and bird songs directly synthesized via Web Audio API.</p>
+            </div>
+          </div>
+          <button id="banner-audio-btn" class="btn btn-secondary">
+            Listen to Forest Soundscape
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 4: The Challenges Plants Face
+         ========================================================================== -->
+    <section id="challenges" class="section-padding" style="background: rgba(229, 62, 62, 0.04);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Part 04 • Ecological Pressures</span>
+          <h2 class="section-title">The Challenges Plants Face</h2>
+          <p class="section-description">
+            Despite their irreplaceable contribution to our survival, the natural world is enduring unprecedented stress from rapid human expansion, resource depletion, and climate disruptions.
+          </p>
+        </div>
+
+        <!-- 4 Major Challenges -->
+        <div class="challenges-grid">
+          <!-- Challenge 1 -->
+          <article class="challenge-card deforest">
+            <span class="challenge-icon">🪓</span>
+            <h4>Deforestation</h4>
+            <p>
+              Vast forests are cleared every year for agricultural monocultures, highways, and urban sprawl. When tree cover is erased, topsoil washes away and thousands of endemic species lose their ancestral homes.
+            </p>
+          </article>
+
+          <!-- Challenge 2 -->
+          <article class="challenge-card pollution">
+            <span class="challenge-icon">🏭</span>
+            <h4>Chemical & Plastic Pollution</h4>
+            <p>
+              Microplastics, toxic agricultural runoffs, and industrial fumes poison the soil biome. Polluted water tables prevent roots from taking up vital micronutrients.
+            </p>
+          </article>
+
+          <!-- Challenge 3 -->
+          <article class="challenge-card climate">
+            <span class="challenge-icon">🔥</span>
+            <h4>Rapid Climate Shifts</h4>
+            <p>
+              Unpredictable droughts, scorching heatwaves, sudden floods, and intense wildfires stress plant genetics. Species adapted to steady seasonal rhythms cannot migrate fast enough.
+            </p>
+          </article>
+
+          <!-- Challenge 4 -->
+          <article class="challenge-card biodiversity">
+            <span class="challenge-icon">📉</span>
+            <h4>Biodiversity Depletion</h4>
+            <p>
+              When diverse old-growth ecosystems are replaced by single uniform crops, the natural resilience of nature collapses, making ecosystems vulnerable to catastrophic disease outbreaks.
+            </p>
+          </article>
+        </div>
+
+        <!-- Real-world Impact Statistics Strip -->
+        <div class="stats-strip">
+          <div class="stat-item">
+            <div class="num">10M</div>
+            <div class="label">Hectares of forest lost annually worldwide</div>
+          </div>
+          <div class="stat-item">
+            <div class="num">40%</div>
+            <div class="label">Of plant species at risk of extinction</div>
+          </div>
+          <div class="stat-item">
+            <div class="num">75%</div>
+            <div class="label">Of food crops depend directly on animal pollinators</div>
+          </div>
+          <div class="stat-item">
+            <div class="num">10°C</div>
+            <div class="label">Temperature reduction achieved under urban tree canopy</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 5: What We Can Do (Action Hub & Interactive Pledge)
+         ========================================================================== -->
+    <section id="actions" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Part 05 • Practical Stewardship</span>
+          <h2 class="section-title">What We Can Do</h2>
+          <p class="section-description">
+            Global challenges can feel overwhelming for one person, but individual actions accumulate into powerful community movements. You don't need to be an expert botanist to make a difference.
+          </p>
+        </div>
+
+        <div class="actions-layout">
+          <!-- The 4 Action Pillars -->
+          <div class="action-pillars">
+            <div class="pillar-card">
+              <div class="pillar-num">1</div>
+              <div class="pillar-content">
+                <h4>Protect Green Spaces Around You</h4>
+                <p>Never litter in parks, avoid trampling seedlings, respect street trees, and join local campus or neighborhood clean-up drives.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-num">2</div>
+              <div class="pillar-content">
+                <h4>Cultivate Native Flora</h4>
+                <p>Choose plants adapted to local soil and rainfall (such as Tulsi, Neem, Hibiscus). Even a modest balcony pot or windowsill planter provides vital nectar to bees.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-num">3</div>
+              <div class="pillar-content">
+                <h4>Use Resources Thoughtfully</h4>
+                <p>Conserve paper, use digital notes when possible, prevent water waste during daily routines, and reuse everyday materials to minimize manufacturing demand.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-num">4</div>
+              <div class="pillar-content">
+                <h4>Learn & Advocate</h4>
+                <p>Share knowledge with friends and family. When communities appreciate that trees are vital infrastructure rather than decorative luxuries, public policy follows.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Pledge Generator -->
+          <div class="pledge-card-generator">
+            <div class="pledge-header">
+              <span class="badge badge-green" style="margin-bottom: 0.5rem;">Interactive Commitment</span>
+              <h3>🌱 My Green Action Pledge</h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">
+                Select your commitments and generate your official Certificate of Stewardship:
+              </p>
+            </div>
+
+            <form id="pledge-form">
+              <div class="pledge-checkboxes">
+                <label class="pledge-option">
+                  <input type="checkbox" checked />
+                  <span>I will nurture and care for at least one potted plant at home or hostel.</span>
+                </label>
+
+                <label class="pledge-option">
+                  <input type="checkbox" checked />
+                  <span>I will conserve paper by proofreading digitally and printing double-sided.</span>
+                </label>
+
+                <label class="pledge-option">
+                  <input type="checkbox" checked />
+                  <span>I will refrain from littering and help keep campus green spaces clean.</span>
+                </label>
+
+                <label class="pledge-option">
+                  <input type="checkbox" />
+                  <span>I will choose native, drought-tolerant plants over water-intensive exotics.</span>
+                </label>
+
+                <label class="pledge-option">
+                  <input type="checkbox" />
+                  <span>I will spend at least 30 minutes outdoors each week unplugged from screens.</span>
+                </label>
+              </div>
+
+              <input id="pledge-name" type="text" class="pledge-name-input" placeholder="Enter your full name or nickname..." required />
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Generate My Stewardship Certificate 📜
+              </button>
+            </form>
+
+            <!-- Rendered Certificate Result -->
+            <div id="pledge-certificate">
+              <span style="font-size: 2rem;">🌿</span>
+              <h4>Certificate of Plant Stewardship</h4>
+              <p style="font-size: 0.9rem;">This verifies that</p>
+              <div id="cert-student-name" class="cert-name">Student Name</div>
+              <p style="font-size: 0.88rem; max-width: 380px; margin: 0 auto 0.75rem;">
+                has pledged to protect, nurture, and champion our living botanical world through everyday mindful choices.
+              </p>
+              <div style="font-size: 0.78rem; opacity: 0.8;">
+                Issued on <span id="cert-date">Today</span> • BVBCET Eco Initiative
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 6: Interactive Quiz (Classroom Knowledge Check)
+         ========================================================================== -->
+    <section id="quiz" class="section-padding" style="background: rgba(82, 183, 136, 0.05);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Classroom Interactive Check</span>
+          <h2 class="section-title">Test Your Plant Literacy</h2>
+          <p class="section-description">
+            Quick 5-question interactive quiz based on the key concepts presented in this project.
+          </p>
+        </div>
+
+        <div class="quiz-box">
+          <div class="quiz-header">
+            <span id="quiz-progress" class="quiz-progress-text">Question 1 of 5</span>
+            <span id="quiz-score" class="quiz-score-badge">Score: 0/5</span>
+          </div>
+
+          <h3 id="quiz-question" class="quiz-question-text">Question goes here...</h3>
+
+          <div id="quiz-options" class="quiz-options">
+            <!-- Dynamic Buttons rendered via JS -->
+          </div>
+
+          <div id="quiz-explanation" class="quiz-explanation">
+            <!-- Explanation rendered here -->
+          </div>
+
+          <div class="quiz-footer">
+            <button id="quiz-next-btn" class="btn btn-primary" style="display: none;">
+              Next Question →
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 7: Full Speech Reader & Classroom Presentation Mode
+         ========================================================================== -->
+    <section id="speech-center" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Project Transcript & Teleprompter</span>
+          <h2 class="section-title">The Complete Speech</h2>
+          <p class="section-description">
+            Read along with real-time text-to-speech narration, or review the original transcript verbatim for presentation delivery and grading.
+          </p>
+        </div>
+
+        <div class="speech-center-box">
+          <div class="speech-toolbar">
+            <div class="speech-controls-group">
+              <button id="play-speech-btn" class="btn btn-primary">
+                ▶️ Play Full Speech
+              </button>
+              <button id="stop-speech-btn" class="btn btn-secondary">
+                ⏹️ Reset
+              </button>
+              <label style="font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; color: var(--text-muted);">
+                Speed:
+                <select id="speech-rate-select" style="padding: 0.3rem 0.6rem; border-radius: var(--radius-sm); border: 1px solid var(--border-medium); background: var(--bg-body); color: var(--text-main);">
+                  <option value="0.85">0.85x (Slow)</option>
+                  <option value="1.0" selected>1.0x (Normal)</option>
+                  <option value="1.2">1.2x (Brisk)</option>
+                </select>
+              </label>
+            </div>
+
+            <div>
+              <button onclick="window.print()" class="btn btn-secondary" style="font-size: 0.85rem;">
+                🖨️ Print / Save PDF
+              </button>
+            </div>
+          </div>
+
+          <!-- Verbatim Speech Text -->
+          <div class="speech-text-body">
+            <div class="speech-paragraph">
+              <h4>Introduction: The Invisible Foundation</h4>
+              <p>Good morning, everyone.</p>
+              <p>Before I begin, I’d like you to imagine a world without plants.</p>
+              <p>No forests. No gardens. No fruits or vegetables. No birds nesting in trees, no bees visiting flowers, and no shade on a hot afternoon. The air would be different, the landscapes would be bare, and life as we know it would be almost impossible.</p>
+              <p>That thought may sound dramatic, but it reminds us of something important: plants are not just decorations around us. They are essential to life. Today, I’m going to talk about the role plants and nature play in our lives, the challenges they face, and the simple ways we can help protect them.</p>
+            </div>
+
+            <div class="speech-paragraph">
+              <h4>Plants are part of everyday life</h4>
+              <p>We often notice plants when we visit a park or see flowers in a garden. But plants are also present in many ordinary parts of our day.</p>
+              <p>The food we eat comes directly or indirectly from plants. Rice, wheat, fruits, vegetables, nuts, tea, coffee, and many spices all come from them. Even animals that provide food depend on plants for their own food.</p>
+              <p>Plants also give us materials we use every day. Cotton comes from a plant. Wood is used to build homes and make furniture. Many medicines are made from plant compounds. Paper, cooking oils, and some fabrics also depend on plants.</p>
+              <p>So when we think about plants, we are not thinking only about forests or gardens. We are thinking about food, clothing, shelter, health, and many other parts of human life.</p>
+            </div>
+
+            <div class="speech-paragraph">
+              <h4>How plants support life</h4>
+              <p>One of the most important things plants do is help keep the air suitable for life. Through a process called photosynthesis, plants use sunlight, water, and carbon dioxide to make their food. As part of this process, they release oxygen.</p>
+              <p>We breathe in oxygen every moment, usually without thinking about where it comes from. Plants help replenish it.</p>
+              <p>Plants also absorb carbon dioxide, a gas that contributes to the warming of our climate when too much builds up in the atmosphere. Forests and other green spaces store carbon in their trunks, roots, and soil. This makes them important in helping regulate the climate.</p>
+              <p>Plants also create habitats. A large tree can provide shelter for birds, insects, and small animals. A pond with nearby plants can support frogs and other wildlife. Even a small patch of flowers can offer food to bees and butterflies.</p>
+              <p>Nature works as a connected system. When one part is affected, other parts can be affected too. For example, if there are fewer flowering plants, pollinators may have less food. If pollinators decline, some crops and wild plants may struggle to reproduce. Protecting plants can therefore help protect many other forms of life.</p>
+            </div>
+
+            <div class="speech-paragraph">
+              <h4>Nature and our wellbeing</h4>
+              <p>Nature supports more than our physical needs. It can also affect how we feel.</p>
+              <p>Think about how you feel after spending time in a park, sitting under a tree, or walking near a garden. Many people find that green spaces help them feel calmer and more refreshed. Being outdoors can give us a break from screens, traffic, and the rush of daily life.</p>
+              <p>Plants also make our surroundings more comfortable. Trees provide shade and can help cool streets and buildings. Green spaces can make a neighbourhood more pleasant to walk through and give people a place to meet, play, or rest.</p>
+              <p>This is especially important in cities, where buildings and roads can make the environment hotter and leave little room for wildlife. Parks, street trees, gardens, and green rooftops can bring some nature back into urban areas.</p>
+              <p>Nature is not only a distant forest or a national park. It can also be the tree outside a classroom, a plant on a balcony, or a small garden in a community.</p>
+            </div>
+
+            <div class="speech-paragraph">
+              <h4>The challenges plants face</h4>
+              <p>Despite their importance, plants and natural spaces face several serious challenges.</p>
+              <p>One challenge is deforestation. Forests are cleared for roads, farms, buildings, and other uses. When forests disappear, animals lose their homes, soils can become less stable, and communities may lose resources they depend on.</p>
+              <p>Another challenge is pollution. Plastic, chemicals, and waste can harm plants and the animals that live around them. Air and water pollution can also damage natural habitats.</p>
+              <p>Climate change brings further pressure. Changes in temperature and rainfall can make it harder for some plants to grow. Droughts, floods, and wildfires can damage forests and gardens. Plants that are adapted to one climate may struggle when conditions change quickly.</p>
+              <p>We also need to think about biodiversity—the variety of different living things. When natural habitats are damaged, some species become rare or disappear. A healthy natural environment usually contains many kinds of plants and animals, each playing a role in the wider system.</p>
+              <p>These challenges may seem too large for one person to solve. But that does not mean our choices are meaningless. Communities, governments, and businesses all have important roles to play, and individual actions can support wider change.</p>
+            </div>
+
+            <div class="speech-paragraph">
+              <h4>What we can do</h4>
+              <p>There are practical ways we can care for plants and nature in our daily lives.</p>
+              <p>First, we can protect the green spaces already around us. We can avoid littering, respect trees and gardens, and take part in local clean-ups or planting activities.</p>
+              <p>Second, we can choose plants that suit the area where we live. Native plants are often well adapted to local conditions and can provide food and shelter for local wildlife. A balcony pot, a school garden, or a few flowers in a shared space can all make a difference.</p>
+              <p>Third, we can use resources thoughtfully. Saving paper, avoiding unnecessary waste, reusing items, and using water carefully can reduce pressure on the natural world.</p>
+              <p>We can also learn more and encourage others. When we understand why plants matter, we are better able to make informed choices and explain their value to people around us.</p>
+              <p>The goal is not for everyone to become an expert gardener or environmental scientist. The goal is to notice our connection to nature and make responsible choices where we can.</p>
+            </div>
+
+            <div class="speech-paragraph">
+              <h4>Conclusion</h4>
+              <p>Let’s return to the image we began with: a world without plants.</p>
+              <p>It is difficult to imagine because plants are woven into almost everything that supports life. They help provide food and materials, support wildlife, contribute to clean air, and make our communities healthier and more welcoming.</p>
+              <p>The natural world is not something separate from us. We depend on it, and our actions affect it.</p>
+              <p>So the next time you pass a tree, see a flower, or walk through a park, take a moment to notice what is there. Then consider one small action you can take to care for it.</p>
+              <p><strong>A seed is small, but it can grow into something much larger. In the same way, small acts of care—repeated by many people—can help protect the living world around us.</strong></p>
+              <p>Thank you.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       Fullscreen Presentation Mode (Classroom Slide Deck Modal)
+       ========================================================================== -->
+  <div id="presentation-modal" role="dialog" aria-modal="true" aria-label="Classroom Presentation Slides">
+    <div class="modal-slide-header">
+      <span class="slide-counter" id="slide-counter">Slide 1 of 6</span>
+      <button id="close-presentation-btn" class="close-presentation-btn">
+        ✕ Exit Slides (ESC)
+      </button>
+    </div>
+
+    <div class="modal-slide-content">
+      <span id="slide-badge" class="slide-badge">Opening Thought Experiment</span>
+      <h2 id="slide-title">Imagine a World Without Plants</h2>
+      <p id="slide-desc">
+        No forests, no crops, no shade, bare landscapes, and depleted oxygen. Plants are not passive scenery; they are the living foundation of all existence.
+      </p>
+    </div>
+
+    <div class="modal-slide-footer">
+      <button id="prev-slide-btn" class="btn btn-secondary">
+        ← Previous Slide
+      </button>
+      <span style="font-size: 0.85rem; opacity: 0.6;">Use Left/Right Arrow Keys or Spacebar</span>
+      <button id="next-slide-btn" class="btn btn-primary">
+        Next Slide →
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Footer
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 1rem;">
+            <div class="brand-icon">🌱</div>
+            <span>Living Foundation</span>
+          </div>
+          <p>
+            An academic communication presentation exploring botanical ecology, human wellbeing, and practical conservation stewardship.
+          </p>
+          <p style="font-size: 0.82rem; color: var(--text-subtle);">
+            Prepared for B.V. Bhoomaraddi College of Engineering & Technology (BVBCET) • 1st Semester Professional Communication (PC).
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Navigation</h5>
+          <ul class="footer-nav">
+            <li><a href="#thought-experiment">Thought Experiment</a></li>
+            <li><a href="#everyday-life">Everyday Essentials</a></li>
+            <li><a href="#support-life">Life Support Engine</a></li>
+            <li><a href="#wellbeing">Mental & Urban Health</a></li>
+            <li><a href="#challenges">Environmental Pressures</a></li>
+            <li><a href="#actions">Action & Pledge</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Interactive Features</h5>
+          <ul class="footer-nav">
+            <li><a href="#open-presentation-btn" onclick="document.getElementById('open-presentation-btn').click(); return false;">Classroom Slides Mode</a></li>
+            <li><a href="#quiz">Classroom Quiz</a></li>
+            <li><a href="#speech-center">Speech Narration (TTS)</a></li>
+            <li><a href="#actions">Stewardship Certificate</a></li>
+            <li><a href="#hero">Back to Top ↑</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Plants and Nature: The Living Foundation of Our World. All rights reserved.
+        </div>
+        <div style="font-style: italic;">
+          "A seed is small, but it can grow into something much larger."
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/leaves-canvas.js"></script>
+  <script src="js/nature-audio.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
